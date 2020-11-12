@@ -1,27 +1,31 @@
 import random
 class EmployeeWage:
-    FULL_DAY_HRS = 8
-    WAGE_PER_HR = 20
-    PART_TIME_HRS = 4
-    MONTHLY_WORKING_DAYS = 20
-    TOTAL_WORKING_HRS = 100
-    ATTENDANCE = {
-        0 : (0,0),
-        1 : (FULL_DAY_HRS*WAGE_PER_HR, FULL_DAY_HRS),
-        2 : (PART_TIME_HRS*WAGE_PER_HR, PART_TIME_HRS)
-    }
 
-    @staticmethod
-    def calculateMonthlyWage():
+    def __init__(self, companyName,  wagePerHr,  partTimeHr,  fullTimeHr,  monthlyWorkingDays,  totalWorkingHrs):
+        self.companyName = companyName
+        self.wagePerHr = wagePerHr
+        self.partTimeHr = partTimeHr
+        self.fullTimeHr = fullTimeHr
+        self.monthlyWorkingDays = monthlyWorkingDays
+        self.totalWorkingHrs = totalWorkingHrs
+        self.attendanceType = { 0:(0,0), 1:(self.fullTimeHr*self.wagePerHr, self.fullTimeHr), 2:(self.partTimeHr*self.wagePerHr, self.partTimeHr) }
+
+    def calculateMonthlyWage(self):
         monthlyWage = 0
         totalWorkHours = 0
-        for i in range(1, EmployeeWage.MONTHLY_WORKING_DAYS, 1):
-            employeeAttendance = random.randint(0, 2)
-            if totalWorkHours + EmployeeWage.ATTENDANCE.get(employeeAttendance)[1] > EmployeeWage.TOTAL_WORKING_HRS:
+        for i in range(1, self.monthlyWorkingDays, 1):
+            attendanceToday = random.randint(0, 2)
+            if totalWorkHours + self.attendanceType.get(attendanceToday)[1] > self.totalWorkingHrs:
                 break
-            monthlyWage = monthlyWage + EmployeeWage.ATTENDANCE.get(employeeAttendance)[0]
-            totalWorkHours = totalWorkHours + EmployeeWage. ATTENDANCE.get(employeeAttendance)[1]
+            monthlyWage = monthlyWage + self.attendanceType.get(attendanceToday)[0]
+            totalWorkHours = totalWorkHours + self.attendanceType.get(attendanceToday)[1]
         return monthlyWage
 
-wage = EmployeeWage.calculateMonthlyWage()
-print(wage)
+flipkartObject = EmployeeWage("Flipkart", 10, 6, 10, 25, 80)
+IBMObject = EmployeeWage("IBM", 20, 4, 8, 20, 100)
+
+flipkartSalary = flipkartObject.calculateMonthlyWage()
+ibmSalary = IBMObject.calculateMonthlyWage()
+
+print(flipkartObject.companyName,'employee earned Rs: ', flipkartSalary)
+print(IBMObject.companyName, 'employee earned Rs: ',ibmSalary)
