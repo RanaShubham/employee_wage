@@ -1,5 +1,9 @@
 import random
+from typing import List, Any
+
 class EmployeeWage:
+
+    companyList: List[Any] = []
 
     def __init__(self, company_name,  wage_per_hour,  part_time_hour,  full_time_hour,  monthly_working_days,  total_working_days):
         self.company_name = company_name
@@ -24,7 +28,6 @@ class EmployeeWage:
         """
         monthly_wage = 0
         total_work_hrs = 0
-        
         for i in range(1, self.monthly_working_days, 1):
             
             attendance_today = random.randint(0, 2)
@@ -36,10 +39,10 @@ class EmployeeWage:
         return monthly_wage
 
 flipkart_object = EmployeeWage("Flipkart", 25, 6, 10, 25, 80)
+EmployeeWage.companyList.append(flipkart_object)
+
 ibm_object = EmployeeWage("IBM", 20, 4, 8, 20, 100)
+EmployeeWage.companyList.append(ibm_object)
 
-flipkart_salary = flipkart_object.calculate_monthly_wage()
-ibm_salary = ibm_object.calculate_monthly_wage()
-
-print(flipkart_object.company_name,'employee earned Rs:',flipkart_salary,'for this month')
-print(ibm_object.company_name, 'employee earned Rs:',ibm_salary,'for this month')
+microsoft_object = EmployeeWage("Microsoft", 20, 5, 10, 22, 100)
+EmployeeWage.companyList.append(microsoft_object)
