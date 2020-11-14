@@ -1,8 +1,9 @@
 import random
+from abc import ABC
 from functools import reduce
 from typing import List, Any
 
-class IBM:
+class IBM(ABC):
     COMPANY_NAME = "IBM"
     WAGE_PER_HOUR = 40
     FULL_DAY_HRS = 8
@@ -10,7 +11,7 @@ class IBM:
     MAX_WORKING_DAYS = 20
     MAX_WORKING_HRS = 100
 
-class MICROSOFT:
+class MICROSOFT(ABC):
     COMPANY_NAME = "MICROSOFT"
     WAGE_PER_HOUR = 50
     FULL_DAY_HRS = 9
@@ -18,7 +19,7 @@ class MICROSOFT:
     MAX_WORKING_DAYS = 25
     MAX_WORKING_HRS = 120
 
-class FLIPKART:
+class FLIPKART(ABC):
     COMPANY_NAME = "FLIPKART"
     WAGE_PER_HOUR = 30
     FULL_DAY_HRS = 12
@@ -39,7 +40,7 @@ class EmployeeWage(MICROSOFT,FLIPKART,IBM):
         self . attendance_type = {0: 0,
                                 1: self . full_time_hour,
                                 2: self . part_time_hour}
-        self . daily_office_time_list = []
+        self . daily_office_hour_list = []
 
     def get_daily_wage_list(self):
         """
@@ -52,14 +53,14 @@ class EmployeeWage(MICROSOFT,FLIPKART,IBM):
         Daily wage list . 
         """
         total_work_hrs = 0
-        for i in range(1, self . monthly_working_days, 1):
+        for _ in range(0, self . monthly_working_days, 1):
             attendance_today = random . randint(0, 2)
             if total_work_hrs + self . attendance_type . get(attendance_today) > self . total_working_hrs:
                 break
-            self . daily_office_time_list . append(self . attendance_type . get(attendance_today))
+            self . daily_office_hour_list . append(self . attendance_type . get(attendance_today))
             total_work_hrs = total_work_hrs + self . attendance_type . get(attendance_today)
 
-        return list(map(lambda x: x * self.WAGE_PER_HOUR, self.daily_office_time_list))
+        return list(map(lambda x: x * self.WAGE_PER_HOUR, self.daily_office_hour_list))
 
     def get_total_wage(self):
         """
