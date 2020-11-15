@@ -1,3 +1,4 @@
+import json
 import random
 from abc import ABC
 from functools import reduce
@@ -81,6 +82,7 @@ def main():
                     FLIPKART . MAX_WORKING_DAYS,
                     FLIPKART . MAX_WORKING_HRS)
     print("Flipkart employee earned ", flipakrt.get_monthly_wage())
+    flipakrt_emp_dict = flipakrt.__dict__
 
     EmployeeWage.companyList.append(flipakrt)
 
@@ -91,6 +93,7 @@ def main():
                             IBM.MAX_WORKING_DAYS,
                             IBM.MAX_WORKING_HRS)
     print("Ibm employee earned ", ibm.get_monthly_wage())
+    ibm_emp_dict = ibm.__dict__
 
     EmployeeWage.companyList.append(ibm)
 
@@ -101,8 +104,14 @@ def main():
                             MICROSOFT.MAX_WORKING_DAYS,
                             MICROSOFT.MAX_WORKING_HRS)
     print("Microsoft employee earned ", microsoft.get_monthly_wage())
+    microsoft_emp_dict = microsoft.__dict__
 
     EmployeeWage.companyList.append(microsoft)
+
+    with open ('.//CompanyDetails.json') as myFile:
+        json.dump(ibm_emp_dict, myFile, indent= 4)
+        json.dump(microsoft_emp_dict, myFile, indent=4)
+        json.dump(flipakrt_emp_dict, myFile, indent=4)
 
 if __name__ == "__main__":
     main()
