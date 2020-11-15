@@ -2,34 +2,10 @@ import json
 import random
 from abc import ABC
 from functools import reduce
-from typing import List, Any
+from typing import List
 
-class IBM(ABC):
-    COMPANY_NAME = "IBM"
-    WAGE_PER_HOUR = 40
-    FULL_DAY_HRS = 8
-    PART_TIME_HRS = 4
-    MAX_WORKING_DAYS = 20
-    MAX_WORKING_HRS = 100
-
-class MICROSOFT(ABC):
-    COMPANY_NAME = "MICROSOFT"
-    WAGE_PER_HOUR = 50
-    FULL_DAY_HRS = 9
-    PART_TIME_HRS = 5
-    MAX_WORKING_DAYS = 16
-    MAX_WORKING_HRS = 120
-
-class FLIPKART(ABC):
-    COMPANY_NAME = "FLIPKART"
-    WAGE_PER_HOUR = 30
-    FULL_DAY_HRS = 12
-    PART_TIME_HRS = 6
-    MAX_WORKING_DAYS = 25
-    MAX_WORKING_HRS = 120
-
-class EmployeeWage (MICROSOFT, FLIPKART, IBM):
-    companyList: List[Any] = []
+class EmployeeWage :
+    employee_wage_object_list = []
 
     def __init__ (self, *args):
         self . company_name = args[0]
@@ -74,44 +50,27 @@ class EmployeeWage (MICROSOFT, FLIPKART, IBM):
         self.create_daily_wage_list()
         return reduce(lambda x,y : x+y, self . daily_wage_list)
 
+    @staticmethod
+    def get_emp_wage_object(company_dict):
+        employee_wage_object = EmployeeWage(
+            company_dict.get("company_name"),
+            company_dict.get("wage_per_hour"),
+            company_dict.get("part_time_hour"),
+            company_dict.get("full_time_hour"),
+            company_dict.get("monthly_working_days"),
+            company_dict.get("max_working_hrs"),
+            company_dict.get("daily_wage_list")
+        )
+        return  employee_wage_object
+
 def main():
-    flipakrt = EmployeeWage(FLIPKART . COMPANY_NAME,
-                    FLIPKART . WAGE_PER_HOUR,
-                    FLIPKART . PART_TIME_HRS,
-                    FLIPKART . FULL_DAY_HRS,
-                    FLIPKART . MAX_WORKING_DAYS,
-                    FLIPKART . MAX_WORKING_HRS)
-    print("Flipkart employee earned ", flipakrt.get_monthly_wage())
-    flipakrt_emp_dict = flipakrt.__dict__
+    with open ('.//CompanyDetails.json', 'r') as data:
+        company_dictionary_list = json.load(data)
+        for company_dict in company_dictionary_list:
+            emp_wage_obj =    EmployeeWage.get_emp_wage_object(company_dict)
+            EmployeeWage.employee_wage_object_list.append(emp_wage_obj)
+            print("{} employee earned Rs {}".format(emp_wage_obj.company_name, emp_wage_obj.get_monthly_wage()))
 
-    EmployeeWage.companyList.append(flipakrt)
-
-    ibm = EmployeeWage(IBM.COMPANY_NAME,
-                            IBM.WAGE_PER_HOUR,
-                            IBM.PART_TIME_HRS,
-                            IBM.FULL_DAY_HRS,
-                            IBM.MAX_WORKING_DAYS,
-                            IBM.MAX_WORKING_HRS)
-    print("Ibm employee earned ", ibm.get_monthly_wage())
-    ibm_emp_dict = ibm.__dict__
-
-    EmployeeWage.companyList.append(ibm)
-
-    microsoft = EmployeeWage(MICROSOFT.COMPANY_NAME,
-                            MICROSOFT.WAGE_PER_HOUR,
-                            MICROSOFT.PART_TIME_HRS,
-                            MICROSOFT.FULL_DAY_HRS,
-                            MICROSOFT.MAX_WORKING_DAYS,
-                            MICROSOFT.MAX_WORKING_HRS)
-    print("Microsoft employee earned ", microsoft.get_monthly_wage())
-    microsoft_emp_dict = microsoft.__dict__
-
-    EmployeeWage.companyList.append(microsoft)
-
-    with open ('.//CompanyDetails.json') as myFile:
-        json.dump(ibm_emp_dict, myFile, indent= 4)
-        json.dump(microsoft_emp_dict, myFile, indent=4)
-        json.dump(flipakrt_emp_dict, myFile, indent=4)
 
 if __name__ == "__main__":
     main()

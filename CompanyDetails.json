@@ -1,0 +1,49 @@
+[{
+    "company_name": "IBM",
+    "wage_per_hour": 40,
+    "part_time_hour": 4,
+    "full_time_hour": 8,
+    "monthly_working_days": 20,
+    "max_working_hrs": 100,
+    "daily_wage_list": null
+}, {
+    "company_name": "MICROSOFT",
+    "wage_per_hour": 50,
+    "part_time_hour": 5,
+    "full_time_hour": 9,
+    "monthly_working_days": 16,
+    "max_working_hrs": 120,
+    "daily_wage_list": null
+}, {
+    "company_name": "FLIPKART",
+    "wage_per_hour": 30,
+    "part_time_hour": 6,
+    "full_time_hour": 12,
+    "monthly_working_days": 25,
+    "max_working_hrs": 120,
+    "daily_wage_list": null
+}, {
+    "company_name": "MYNTRA",
+    "wage_per_hour": 28,
+    "part_time_hour": 5,
+    "full_time_hour": 10,
+    "monthly_working_days": 24,
+    "max_working_hrs": 130,
+    "daily_wage_list": null
+}, {
+    "company_name": "AMAZON",
+    "wage_per_hour": 44,
+    "part_time_hour": 4,
+    "full_time_hour": 11,
+    "monthly_working_days": 21,
+    "max_working_hrs": 100,
+    "daily_wage_list": null
+}, {
+    "company_name": "MCL",
+    "wage_per_hour": 50,
+    "part_time_hour": 4,
+    "full_time_hour": 8,
+    "monthly_working_days": 25,
+    "max_working_hrs": 120,
+    "daily_wage_list": null
+}]
