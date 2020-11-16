@@ -18,7 +18,7 @@ class EmployeeWage :
 
     def hours_worked_today(self, part_time_hr, full_day_hr):
         '''
-        To get the number of hours work was done today . 
+        To get the number of hours work was done today .
         :return: integer signifying hours of work done today
         :rtype: int
         '''
@@ -29,8 +29,8 @@ class EmployeeWage :
 
     def create_daily_wage_list(self):
         '''
-        Creates a daily salary list of employee for the company . 
-        :return: List of daily salaries . 
+        Creates a daily salary list of employee for the company .
+        :return: List of daily salaries .
         :rtype: List
         '''
         work_hours_count = 0
@@ -40,7 +40,7 @@ class EmployeeWage :
             work_hrs_today = self . hours_worked_today(self . part_time_hour, self . full_time_hour)
             work_hours_count = work_hours_count + work_hrs_today
             self . daily_wage_list . append(work_hrs_today * self . wage_per_hour)
-        
+
     def get_monthly_wage(self):
         '''
         Calculates total wage from the wage list.
@@ -70,7 +70,6 @@ def main():
             emp_wage_obj =    EmployeeWage.get_emp_wage_object(company_dict)
             EmployeeWage.employee_wage_object_list.append(emp_wage_obj)
             print("{} employee earned Rs {}".format(emp_wage_obj.company_name, emp_wage_obj.get_monthly_wage()))
-
 
 if __name__ == "__main__":
     main()
