@@ -23,7 +23,7 @@ class EmployeeWage :
             :return: integer signifying hours of work done today
             :rtype: int
         '''
-        attendance_today = random . randint(0, 2)
+        attendance_today = random.randint(0, 2)
         return 0 if attendance_today == 0\
             else self.full_time_hour if attendance_today == 1\
             else self.part_time_hour
@@ -35,12 +35,15 @@ class EmployeeWage :
             :rtype: List
         '''
         work_hours_count = 0
-        for _ in range(0, self . monthly_working_days, 1):
-            work_hrs_today = self.hours_worked_today()
-            if (work_hours_count + work_hrs_today >= self . max_working_hrs):
-                break
-            self.daily_wage_list.append(work_hrs_today * self.wage_per_hour)
-            work_hours_count = work_hours_count + work_hrs_today
+        try:
+            for _ in range(0, self.monthly_working_days, 1):
+                work_hrs_today = self.hours_worked_today()
+                if (work_hours_count + work_hrs_today >= self.max_working_hrs):
+                    break
+                self.daily_wage_list.append(work_hrs_today * self.wage_per_hour)
+                work_hours_count = work_hours_count + work_hrs_today
+        except TypeError:
+            raise  EmployeeWageException("Data corrupt.")
 
     def get_monthly_wage(self):
         '''

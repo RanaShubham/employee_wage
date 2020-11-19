@@ -1,0 +1,142 @@
+[{
+    "company_name":"xyz",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz1",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":130
+},{
+
+    "company_name":"xyz2",
+    "wage_per_hour":11,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz3",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz4",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz5",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz6",
+    "wage_per_hour":10,
+    "part_time_hour":8,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":160
+},{
+    "company_name":"xyz7",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":150
+},{
+
+    "company_name":"xyz8",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":140
+},{
+
+    "company_name":"xyz9",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":180
+},{
+
+    "company_name":"xyz10",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz11",
+    "wage_per_hour":80,
+    "part_time_hour":15,
+    "full_time_hour":20,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz12",
+    "wage_per_hour":50,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz13",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+    "company_name":"xyz14",
+    "wage_per_hour":1000,
+    "part_time_hour":5,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz15",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":22,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz16",
+    "wage_per_hour":10,
+    "part_time_hour":7,
+    "full_time_hour":10,
+    "monthly_working_days":20,
+    "max_working_hrs":100
+},{
+
+    "company_name":"xyz17",
+    "wage_per_hour":10,
+    "part_time_hour":5,
+    "full_time_hour":16,
+    "monthly_working_days":30,
+    "max_working_hrs":120
+}]
